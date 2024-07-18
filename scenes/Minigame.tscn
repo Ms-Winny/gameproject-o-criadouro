@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://5kwpbhxs7sun"]
+
+[ext_resource type="Script" path="res://scripts/Minigame.gd" id="1_8w2ck"]
+[ext_resource type="PackedScene" path="res://scenes/Computer/Minigame/paredes.tscn" id="2_046qx"]
+[ext_resource type="Texture2D" uid="uid://017w4vifgqey" path="res://assets/sprites/computer.png" id="2_uhv6t"]
+[ext_resource type="Texture2D" uid="uid://wtiu76se4fvy" path="res://assets/sprites/dna_barra_template.png" id="4_dn4s0"]
+[ext_resource type="Texture2D" uid="uid://b1s5it7hkuufe" path="res://assets/sprites/Barra_de_tempo.png" id="4_wfd8o"]
+[ext_resource type="Texture2D" uid="uid://dc7yi761fcfl" path="res://assets/sprites/dna_barra_preenchimento.png" id="5_hsw02"]
+[ext_resource type="Texture2D" uid="uid://ciyrvwr1drnwo" path="res://assets/sprites/Tempo.png" id="5_nwj2h"]
+[ext_resource type="Script" path="res://scripts/tempo_minigame.gd" id="6_c5tvc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8w2ck")
+
+[node name="Paredes" parent="." instance=ExtResource("2_046qx")]
+
+[node name="Tela" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.5
+offset_top = -276.5
+offset_right = 368.5
+offset_bottom = 276.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uhv6t")
+
+[node name="Barra_de_Dna" type="TextureRect" parent="Tela"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -306.0
+offset_right = -17.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_dn4s0")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Tela/Barra_de_Dna"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 4.0
+offset_right = 30.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("5_hsw02")
+
+[node name="Barra_de_Tempo" type="TextureRect" parent="Tela"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -32.0
+offset_right = 346.0
+offset_bottom = -10.0
+grow_vertical = 0
+texture = ExtResource("4_wfd8o")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Tela/Barra_de_Tempo"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 3.5
+offset_top = -8.0
+offset_right = -3.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 30.0
+nine_patch_stretch = true
+texture_progress = ExtResource("5_nwj2h")
+script = ExtResource("6_c5tvc")
+
+[node name="Timer" type="Timer" parent="Tela/Barra_de_Tempo/TextureProgressBar"]
+
+[node name="ParticulasBoas" type="Node2D" parent="Tela"]
+
+[node name="ParticulasRuins" type="Node2D" parent="Tela"]
+
+[connection signal="timeout" from="Tela/Barra_de_Tempo/TextureProgressBar/Timer" to="Tela/Barra_de_Tempo/TextureProgressBar" method="_on_timer_timeout"]

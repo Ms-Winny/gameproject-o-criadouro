@@ -1,0 +1,146 @@
+[gd_scene load_steps=19 format=3 uid="uid://g8j58lngfpy"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_cikoh"]
+[ext_resource type="FontFile" uid="uid://kpphhsacgfc0" path="res://fonts/Cormorant-Bold.ttf" id="1_m28un"]
+[ext_resource type="Texture2D" uid="uid://4grxb0m8ydy1" path="res://assets/icons/letreiro.jpeg" id="3_cjonc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wrh1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rw1k8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57543"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mec1e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f5ijp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wd38y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlg0w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c55a4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwnxh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4s0vy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fvc6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wlru"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_606lg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eagty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihefc"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cikoh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FeitoPor" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="FeitoPor"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.541176, 0.364706, 0.74902, 1)
+theme_override_fonts/font = ExtResource("1_m28un")
+theme_override_font_sizes/font_size = 24
+text = "Feito por DruidesaLunar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00004, 1.00004)
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_cjonc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Jogar" type="Button" parent="MainContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.219608, 0.345098, 1)
+theme_override_colors/font_hover_color = Color(0.403922, 0.219608, 0.345098, 0.490196)
+theme_override_fonts/font = ExtResource("1_m28un")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5wrh1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rw1k8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_57543")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mec1e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f5ijp")
+text = "Jogar"
+flat = true
+
+[node name="Controles" type="Button" parent="MainContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.219608, 0.345098, 1)
+theme_override_colors/font_hover_color = Color(0.403922, 0.219608, 0.345098, 0.490196)
+theme_override_fonts/font = ExtResource("1_m28un")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wd38y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qlg0w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c55a4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qwnxh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4s0vy")
+text = "Como jogar"
+flat = true
+
+[node name="Sair" type="Button" parent="MainContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.219608, 0.345098, 1)
+theme_override_colors/font_hover_color = Color(0.403922, 0.219608, 0.345098, 0.490196)
+theme_override_fonts/font = ExtResource("1_m28un")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8fvc6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0wlru")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_606lg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eagty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ihefc")
+text = "Sair do Jogo"
+flat = true
+
+[connection signal="pressed" from="MainContainer/HBoxContainer/VBoxContainer/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="MainContainer/HBoxContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="MainContainer/HBoxContainer/VBoxContainer/Sair" to="." method="_on_sair_pressed"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dil3tc6yh64cx"]
+
+[ext_resource type="PackedScene" uid="uid://b6w23ic2w3dhi" path="res://scenes/cenario.tscn" id="1_j8jo7"]
+[ext_resource type="Script" path="res://scripts/corredor.gd" id="1_k6swr"]
+[ext_resource type="PackedScene" uid="uid://cb1jffirluy86" path="res://scenes/portal.tscn" id="2_qxv6n"]
+[ext_resource type="PackedScene" uid="uid://c1ear3aksl8l6" path="res://scenes/Personagens/dr_.tscn" id="4_8cn7d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwr61"]
+radius = 48.1664
+
+[node name="Corredor" type="Node2D"]
+script = ExtResource("1_k6swr")
+
+[node name="TileMap" parent="." instance=ExtResource("1_j8jo7")]
+layer_0/tile_data = PackedInt32Array(262146, 2, 2, 327682, 2, 3, 393218, 2, 4, 196611, 65538, 1, 262147, 65538, 2, 327683, 65538, 3, 393219, 65538, 4, 131076, 131074, 0, 196612, 131074, 1, 262148, 131074, 2, 327684, 131074, 3, 393220, 131074, 4, 131077, 196610, 0, 196613, 196610, 1, 262149, 196610, 2, 327685, 196610, 3, 393221, 196610, 4, 131078, 262146, 0, 196614, 262146, 1, 262150, 262146, 2, 327686, 262146, 3, 131079, 327682, 0, 196615, 327682, 1, 262151, 327682, 2, 327687, 327682, 3, 131080, 393218, 0, 196616, 393218, 1, 262152, 393218, 2, 327688, 393218, 3, 393224, 393218, 4, 131081, 458754, 0, 196617, 458754, 1, 262153, 458754, 2, 327689, 458754, 3, 393225, 458754, 4, 131082, 524290, 0, 196618, 524290, 1, 262154, 524290, 2, 327690, 524290, 3, 393226, 524290, 4, 131083, 589826, 0, 196619, 589826, 1, 262155, 589826, 2, 327691, 589826, 3, 393227, 589826, 4, 131084, 655362, 0, 196620, 655362, 1, 262156, 655362, 2, 327692, 655362, 3, 393228, 655362, 4, 131085, 720898, 0, 196621, 720898, 1, 262157, 720898, 2, 327693, 720898, 3, 393229, 720898, 4, 196622, 786434, 1, 262158, 786434, 2, 327694, 786434, 3, 393230, 786434, 4, 262159, 851970, 2, 327695, 851970, 3, 393231, 851970, 4, 393222, 262146, 4, 393223, 327682, 4, 458754, 2, 5, 458755, 65538, 5, 458756, 131074, 5, 458757, 196610, 5, 458758, 262146, 5, 458759, 327682, 5, 458760, 393218, 5, 458761, 458754, 5, 458762, 524290, 5, 458763, 589826, 5, 458764, 655362, 5, 458765, 720898, 5, 458766, 786434, 5, 458767, 851970, 5)
+
+[node name="Portal" parent="." instance=ExtResource("2_qxv6n")]
+position = Vector2(224, 394)
+scale = Vector2(3.32381, 3.32381)
+proximaCena = "res://scenes/Locais/sala_de_estar.tscn"
+
+[node name="Dr_" parent="." instance=ExtResource("4_8cn7d")]
+position = Vector2(284, 342)
+
+[node name="Sinalizador de porta" type="Area2D" parent="."]
+position = Vector2(233, 394)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sinalizador de porta"]
+position = Vector2(-8, 1)
+shape = SubResource("CircleShape2D_jwr61")
+
+[connection signal="body_entered" from="Sinalizador de porta" to="." method="_on_sinalizador_de_porta_body_entered"]

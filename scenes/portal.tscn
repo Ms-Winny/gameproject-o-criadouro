@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb1jffirluy86"]
+
+[ext_resource type="Script" path="res://scripts/portal.gd" id="1_1t3os"]
+[ext_resource type="AudioStream" uid="uid://bqog0t3yigvad" path="res://assets/audio/porta_fechando.wav" id="2_i23ww"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_58rcs"]
+radius = 13.6015
+
+[node name="Portal" type="Node2D"]
+script = ExtResource("1_1t3os")
+
+[node name="portal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portal"]
+shape = SubResource("CircleShape2D_58rcs")
+
+[node name="som" type="AudioStreamPlayer" parent="portal"]
+stream = ExtResource("2_i23ww")
+
+[connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]
+[connection signal="body_exited" from="portal" to="." method="_on_portal_body_exited"]

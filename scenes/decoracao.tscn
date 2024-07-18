@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv5io531r4wdi"]
+
+[ext_resource type="Texture2D" uid="uid://dclobfj7u84q4" path="res://assets/sprites/Casa/decoracao/sofa.png" id="1_8dlad"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epo0l"]
+texture = ExtResource("1_8dlad")
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/0 = 0
+0:0/0/y_sort_origin = -11
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.75, -12.25, 23.25, -12.375, 24.875, -10.5, 23.5, -6.5, 2.875, 23.125, -2.25, 26.5, -21.5, 24.5, -24.875, 19.25, -25, 9.5)
+
+[sub_resource type="TileSet" id="TileSet_hethg"]
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_epo0l")
+
+[node name="TileMap" type="TileMap"]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_hethg")
+cell_quadrant_size = 32
+format = 2

@@ -1,0 +1,170 @@
+[gd_scene load_steps=13 format=3 uid="uid://nd510s4wvmp1"]
+
+[ext_resource type="Script" path="res://scripts/Minigame.gd" id="1_8w2ck"]
+[ext_resource type="Texture2D" uid="uid://017w4vifgqey" path="res://assets/sprites/computer.png" id="2_uhv6t"]
+[ext_resource type="Texture2D" uid="uid://wtiu76se4fvy" path="res://assets/sprites/dna_barra_template.png" id="4_dn4s0"]
+[ext_resource type="Texture2D" uid="uid://b1s5it7hkuufe" path="res://assets/sprites/Barra_de_tempo.png" id="4_wfd8o"]
+[ext_resource type="Texture2D" uid="uid://dc7yi761fcfl" path="res://assets/sprites/dna_barra_preenchimento.png" id="5_hsw02"]
+[ext_resource type="Texture2D" uid="uid://ciyrvwr1drnwo" path="res://assets/sprites/Tempo.png" id="5_nwj2h"]
+[ext_resource type="Script" path="res://scripts/tempo_minigame.gd" id="6_c5tvc"]
+[ext_resource type="PackedScene" uid="uid://c6xex0pa21yr4" path="res://scenes/Computer/Minigame/dna_01.tscn" id="7_35tk4"]
+[ext_resource type="PackedScene" uid="uid://bn7ed6q4o2be8" path="res://scenes/Computer/Minigame/paredes.tscn" id="8_jcwhd"]
+[ext_resource type="PackedScene" uid="uid://c7ih47heacx7f" path="res://scenes/Computer/Minigame/dna_02.tscn" id="10_mlemi"]
+[ext_resource type="PackedScene" uid="uid://ddr11f55rx471" path="res://scenes/Computer/Minigame/dna_03.tscn" id="11_vq1i7"]
+[ext_resource type="PackedScene" uid="uid://be50aqn5u0t8p" path="res://scenes/Computer/Minigame/dna_mau.tscn" id="12_hvnii"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8w2ck")
+
+[node name="Paredes" parent="." instance=ExtResource("8_jcwhd")]
+
+[node name="Tela" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.5
+offset_top = -276.5
+offset_right = 368.5
+offset_bottom = 276.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uhv6t")
+
+[node name="Barra_de_Dna" type="TextureRect" parent="Tela"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -306.0
+offset_right = -17.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_dn4s0")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Tela/Barra_de_Dna"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 4.0
+offset_right = 30.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("5_hsw02")
+
+[node name="Barra_de_Tempo" type="TextureRect" parent="Tela"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -32.0
+offset_right = 346.0
+offset_bottom = -10.0
+grow_vertical = 0
+texture = ExtResource("4_wfd8o")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Tela/Barra_de_Tempo"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 3.5
+offset_top = -8.0
+offset_right = -3.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 30.0
+nine_patch_stretch = true
+texture_progress = ExtResource("5_nwj2h")
+script = ExtResource("6_c5tvc")
+
+[node name="Timer" type="Timer" parent="Tela/Barra_de_Tempo/TextureProgressBar"]
+
+[node name="ParticulasBoas" type="Node2D" parent="Tela"]
+
+[node name="Dna" parent="Tela/ParticulasBoas" instance=ExtResource("7_35tk4")]
+position = Vector2(202.5, 266.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Dna8" parent="Tela/ParticulasBoas" instance=ExtResource("7_35tk4")]
+position = Vector2(581.5, 486.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Dna5" parent="Tela/ParticulasBoas" instance=ExtResource("7_35tk4")]
+position = Vector2(144.5, 401.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Dna2" parent="Tela/ParticulasBoas" instance=ExtResource("10_mlemi")]
+position = Vector2(296.5, 153.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Dna6" parent="Tela/ParticulasBoas" instance=ExtResource("10_mlemi")]
+position = Vector2(435.5, 95.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Dna3" parent="Tela/ParticulasBoas" instance=ExtResource("11_vq1i7")]
+position = Vector2(445.5, 355.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Dna4" parent="Tela/ParticulasBoas" instance=ExtResource("7_35tk4")]
+position = Vector2(95.5, 144.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Dna7" parent="Tela/ParticulasBoas" instance=ExtResource("7_35tk4")]
+position = Vector2(568.5, 255.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="ParticulasRuins" type="Node2D" parent="Tela"]
+
+[node name="DnaMau" parent="Tela/ParticulasRuins" instance=ExtResource("12_hvnii")]
+position = Vector2(304.5, 398.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="DnaMau2" parent="Tela/ParticulasRuins" instance=ExtResource("12_hvnii")]
+position = Vector2(580.5, 123.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="DnaMau3" parent="Tela/ParticulasRuins" instance=ExtResource("12_hvnii")]
+position = Vector2(177.5, 77.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="DnaMau4" parent="Tela/ParticulasRuins" instance=ExtResource("12_hvnii")]
+position = Vector2(452.5, 462.5)
+collision_layer = 2
+collision_mask = 0
+
+[connection signal="timeout" from="Tela/Barra_de_Tempo/TextureProgressBar/Timer" to="Tela/Barra_de_Tempo/TextureProgressBar" method="_on_timer_timeout"]

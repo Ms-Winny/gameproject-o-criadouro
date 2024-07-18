@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3bsrovebjcqq"]
+
+[ext_resource type="Texture2D" uid="uid://dclobfj7u84q4" path="res://assets/sprites/Casa/decoracao/sofa.png" id="1_8dlad"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jnf6x"]
+texture = ExtResource("1_8dlad")
+1:0/0 = 0
+1:0/0/y_sort_origin = 5
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 3.18198, 8, 8, -8, 8, -4.77297, 3.27037)
+2:0/0 = 0
+2:0/0/y_sort_origin = 5
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 3.18198, 8, 8, -8, 8, -8, 3.09359)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.25, 8, 8, -8, 8, 8)
+1:1/0 = 0
+1:1/0/y_sort_origin = -8
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/y_sort_origin = -8
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -5.5, -2.875, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.25, -8, 8, -8, 8, 8, -8, 8, -8, -5.125)
+1:2/0 = 0
+1:2/0/y_sort_origin = -8
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0.25, 2.375, 8, -8, 8)
+2:2/0 = 0
+2:2/0/y_sort_origin = -8
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.625, -8, -8, 0.375)
+
+[sub_resource type="TileSet" id="TileSet_hethg"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_jnf6x")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_hethg")
+cell_quadrant_size = 32
+format = 2

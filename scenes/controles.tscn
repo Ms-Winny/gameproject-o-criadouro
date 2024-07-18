@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://df4qohgvhqrw6"]
+
+[ext_resource type="FontFile" uid="uid://kpphhsacgfc0" path="res://fonts/Cormorant-Bold.ttf" id="1_dsajm"]
+[ext_resource type="FontFile" uid="uid://dvhjnckwm4qcs" path="res://fonts/Cormorant-BoldItalic.ttf" id="2_w63fb"]
+[ext_resource type="PackedScene" uid="uid://b4g7u1pd446t" path="res://prefabs/voltar.tscn" id="3_u28l1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -26.5
+offset_right = 44.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.419608, 0.721569, 1)
+theme_override_fonts/font = ExtResource("1_dsajm")
+theme_override_font_sizes/font_size = 50
+text = "Como Jogar"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.219608, 0.345098, 1)
+theme_override_fonts/font = ExtResource("2_w63fb")
+theme_override_font_sizes/font_size = 32
+text = "Use as teclas WASD para mover o Dr. nas quatro direções."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.219608, 0.345098, 1)
+theme_override_fonts/font = ExtResource("2_w63fb")
+theme_override_font_sizes/font_size = 32
+text = "Use a tecla E para interagir com o cenário, personagens e abrir portas."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.219608, 0.345098, 1)
+theme_override_fonts/font = ExtResource("2_w63fb")
+theme_override_font_sizes/font_size = 32
+text = "Use a tecla Espaço para avançar os diálogos do jogo."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.219608, 0.345098, 1)
+theme_override_fonts/font = ExtResource("2_w63fb")
+theme_override_font_sizes/font_size = 32
+text = "Siga as ordens DELE, apenas ELE detém toda a verdade..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Voltar" parent="." instance=ExtResource("3_u28l1")]
+layout_mode = 1
+offset_top = -100.0
+offset_bottom = -40.0
+cenaAnterior = "res://scenes/menu.tscn"

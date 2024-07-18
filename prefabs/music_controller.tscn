@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbfb5keil2eh2"]
+
+[ext_resource type="Script" path="res://scripts/MusicController.gd" id="1_m8jdn"]
+[ext_resource type="AudioStream" uid="uid://bqog0t3yigvad" path="res://assets/audio/porta_fechando.wav" id="2_ostci"]
+[ext_resource type="AudioStream" uid="uid://dlmgqc4h0iidr" path="res://assets/audio/SomTecla.wav" id="3_8mfrr"]
+
+[node name="MusicController" type="Node2D"]
+script = ExtResource("1_m8jdn")
+
+[node name="porta" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ostci")
+volume_db = -15.0
+
+[node name="tecla" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8mfrr")
+volume_db = -14.88
